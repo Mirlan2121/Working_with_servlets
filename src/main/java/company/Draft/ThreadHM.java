@@ -1,6 +1,6 @@
 package company.Draft;
 
-public class ThreadHM extends Thread{
+public class  ThreadHM extends Thread{
 
     private String simbol;
     private int num;

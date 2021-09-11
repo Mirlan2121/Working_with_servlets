@@ -12,8 +12,6 @@ public class Main {
         threadHM3.start();
         threadHM4.start();
         System.out.println("Main end ");
-
-
     }
 }
 /**
