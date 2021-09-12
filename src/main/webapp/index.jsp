@@ -1,19 +1,26 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%@page contentType="text/html" language = "java"%>
+<html>
+<body>
+<h2> Домашняя работа номер 43 !!!!</h2>
+
+<form action="${pageContext.request.contextPath}/primenumbers" method="post">
+   <button>Вывод простых чисел в клетку</button>
+</form>
+
+<form action="${pageContext.request.contextPath}/time" method="post">
+   <button>Время</button>
+</form>
+
+<form action="${pageContext.request.contextPath}/random" method="post">
+   <button>Случайное число</button>
+</form>
+
+<form action="${pageContext.request.contextPath}/google" method="post">
+   <button>Кнопка на сайт Google</button>
+</form>
 
 
-<head>
-   <title>Home Works 41 !!!</title>
-</head>
-<body style="background-color: rgb(107, 107, 107);">
 
-   <img src="300.jpg" alt="">
-
-   <form action="${pageContext.request.contextPath}/name" method="post">
-   
-      <input type="text" name="name" placeholder="Enter your name:" style="margin-left: 5% ; margin-top: 1%;">
-
-      <input type="submit" name="submit" value="submit">
-   </form>
 </body>
 </html>
