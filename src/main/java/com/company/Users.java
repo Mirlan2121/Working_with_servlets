@@ -1,4 +1,4 @@
-package com.model;
+package com.company;
 
 import java.util.Date;
 
@@ -11,10 +11,12 @@ public class Users {
 
     public Users(){}
 
-    public Users( String userName, String email, String possword) {
+    public Users(int id, String userName, String email, String possword, Date dateOfRegistration) {
+        this.id = id;
         this.userName = userName;
         this.email = email;
         this.possword = possword;
+        this.dateOfRegistration = dateOfRegistration;
     }
 
     public int getId() {

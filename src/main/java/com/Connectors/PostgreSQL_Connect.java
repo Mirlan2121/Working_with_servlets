@@ -10,12 +10,6 @@ public class PostgreSQL_Connect {
     private final String password = "miki212122";
 
     public  Connection connect() throws SQLException {
-
-        try{
-            Class.forName("org.postgresql.Driver");
-        }catch (ClassNotFoundException e){
-            System.out.println(e.getClass().getName() + ": " + e.getMessage());
-        }
         Connection connection = DriverManager.getConnection(url, user, password);
         return connection;
     }
