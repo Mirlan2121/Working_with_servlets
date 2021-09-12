@@ -1,4 +1,4 @@
-package com.servlet.Connectors;
+package com.Connectors;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

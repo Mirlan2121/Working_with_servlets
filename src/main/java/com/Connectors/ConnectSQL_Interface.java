@@ -1,4 +1,4 @@
-package com.servlet.Connectors;
+package com.Connectors;
 
 public interface ConnectSQL_Interface {
     void CreateTableSQL(String write);
