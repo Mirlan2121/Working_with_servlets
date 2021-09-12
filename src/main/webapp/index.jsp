@@ -2,23 +2,27 @@
 
 <html>
 <body>
-<h2> Домашняя работа номер 43 !!!!</h2>
+<h2 style="text-align: center;"> Домашняя работа номер 43 !!!!</h2>
 
-<form action="${pageContext.request.contextPath}/primenumbers" method="post">
-   <button>Вывод простых чисел в клетку</button>
-</form>
+<div style="text-align: center;">
+   <form action="${pageContext.request.contextPath}/userset" method="post">
 
-<form action="${pageContext.request.contextPath}/time" method="post">
-   <button>Время</button>
-</form>
+      <input type="text" name="login" placeholder="Введите логин">
+      <br>
+      <input type="password" name="password" placeholder="Введите пароль">
+      <br>
+      <input type="email" name="email" placeholder="Введите почту">
+      <br>
+      <input type="radio" name="gender" value="Man"> Мужчина
+      <input type="radio" name="gender" value="Woman"> Женщина
+      <br>
+      <input type="submit" value="Внести информацию в базу данных">
+   </form>
+</div>
 
-<form action="${pageContext.request.contextPath}/random" method="post">
-   <button>Случайное число</button>
-</form>
+</body>
+</html>
 
-<form action="${pageContext.request.contextPath}/google" method="post">
-   <button>Кнопка на сайт Google</button>
-</form>
 
 
 
