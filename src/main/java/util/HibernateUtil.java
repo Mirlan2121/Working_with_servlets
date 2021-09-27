@@ -11,7 +11,6 @@ public class HibernateUtil {
                 return new Configuration().configure().buildSessionFactory();
             } catch (Throwable ex) {
                 System.err.println("Session not created: " + ex);
-//                System.out.println(ex.getClass().getName() + " :" + ex.getMessage());
                 throw new ExceptionInInitializerError(ex);
             }
         }

@@ -15,9 +15,9 @@ import javax.persistence.*;
 @ToString
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "full_name", nullable = true, unique = true)
+    @Column(name = "full_name", nullable = false)
     private String fullName;
     @Column(nullable = false)
     private Integer age;
