@@ -4,19 +4,18 @@ import lombok.*;
 
 import javax.persistence.*;
 
+
 @Entity
-@Table
+@Table(name="conutries")
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @ToString
 public class Country {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-    @Column(nullable = false,length = 50)
-  private String name;
+    private Long id;
+    private String name;
 }
