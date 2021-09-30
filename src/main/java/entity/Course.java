@@ -5,24 +5,23 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "teams")
+@Table(name = "courses")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @ToString
-public class Team {
+public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "name_course",nullable = false)
     private String name;
-    private String logo;
-    private String site;
+    @ManyToMany
+    @JoinColumn(name = "mentor_id")
+    private Mentor mentorId;
     @ManyToOne
-    @JoinColumn(name = "sport_id")
-    private Sport sport;
-    @ManyToOne
-    @JoinColumn(name = "country_id")
-    private Country country;
+    @JoinColumn(name = "group_id")
+    private Group groupId;
 }
