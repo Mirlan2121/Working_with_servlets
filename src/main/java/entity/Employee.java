@@ -18,8 +18,11 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "full_name", nullable = false)
-    private String fullName;
+    private String name;
     @Column(nullable = false)
     private Integer age;
+    @ManyToOne
+    @JoinColumn(name = "country_id")
+    private Country country;
 
 }
