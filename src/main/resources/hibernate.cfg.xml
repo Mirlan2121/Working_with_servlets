@@ -12,11 +12,10 @@
         <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
         <property name="hibernate.enable_lazy_load_no_trans">true</property>
         <property name="show_sql">true</property>
-        <mapping class="entity.User"/>
-        <mapping class="entity.Followers"/>
-        <mapping class="entity.Likes"/>
-        <mapping class="entity.Posts"/>
-        <mapping class="entity.Comment"/>
+        <mapping class="entity.Course"/>
+        <mapping class="entity.Group"/>
+        <mapping class="entity.Mentor"/>
+        <mapping class="entity.Student"/>
 
     </session-factory>
 </hibernate-configuration>

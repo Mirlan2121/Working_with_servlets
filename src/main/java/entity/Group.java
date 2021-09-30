@@ -17,7 +17,7 @@ public class Group {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @ManyToOne
+    @OneToMany
     @JoinColumn(name = "student_id")
     private List<Student> studentId;
     @ManyToOne

@@ -16,9 +16,8 @@ public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "name_course",nullable = false)
     private String name;
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "mentor_id")
     private Mentor mentorId;
     @ManyToOne

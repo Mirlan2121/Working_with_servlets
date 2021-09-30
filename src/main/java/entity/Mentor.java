@@ -21,7 +21,7 @@ public class Mentor {
     @OneToMany
     @JoinColumn(name = "student_id")
     private List<Student> studentId;
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "group_id")
     private Group group;
 }
