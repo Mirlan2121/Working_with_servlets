@@ -51,7 +51,34 @@ public class Application {
         hibernateSession.close();
         return employees;
     }
+    public List<Employee> gegtEmployeeByName(String searchFullName){
+        Session hibernateSession = HibernateUtil.getSessionFactory().openSession();
 
+        List<Employee> employees = hibernateSession.createQuery("FROM Employee where name = : pname",Employee.class).
+                setParameter("pname", "Miki").list();
+
+        hibernateSession.close();
+        System.out.println("Найден: " + employees.size() + "Сотрудник");
+        return employees;
+    }
+    public static List<Employee> getAllBySearchByName(){
+        Session hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        List<Employee> employees =  hibernateSession.createQuery("FROM Employee where age > : age and name like:searchString")
+                .setParameter("age", 18)
+                .setParameter("searchString", "V%").list();
+        hibernateSession.close();
+        return employees;
+    }
+    public static <T> T saveEntity(T entity){
+        Session hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        hibernateSession.beginTransaction();
+        hibernateSession.save(entity);
+        hibernateSession.getTransaction().commit();
+        hibernateSession.close();
+
+        System.out.println("Успешное сохронение " + entity.toString());
+        return entity;
+    }
 //    public static Employee updateEmployee(Employee employee) {
 //        Session hibernateSession = HibernateUtil.getSessionFactory().openSession();
 //        hibernateSession.beginTransaction();
@@ -86,32 +113,5 @@ public class Application {
 //        hibernateSession.getTransaction().commit();
 //        hibernateSession.close();
 //    }
-    public List<Employee> gegtEmployeeByName(String searchFullName){
-        Session hibernateSession = HibernateUtil.getSessionFactory().openSession();
 
-        List<Employee> employees = hibernateSession.createQuery("FROM Employee where name = : pname",Employee.class).
-                setParameter("pname", "Miki").list();
-
-        hibernateSession.close();
-        System.out.println("Найден: " + employees.size() + "Сотрудник");
-        return employees;
-    }
-    public static List<Employee> getAllBySearchByName(){
-        Session hibernateSession = HibernateUtil.getSessionFactory().openSession();
-        List<Employee> employees =  hibernateSession.createQuery("FROM Employee where age > : age and name like:searchString")
-                .setParameter("age", 18)
-                .setParameter("searchString", "V%").list();
-        hibernateSession.close();
-        return employees;
-    }
-    public static <T> T saveEntity(T entity){
-        Session hibernateSession = HibernateUtil.getSessionFactory().openSession();
-        hibernateSession.beginTransaction();
-        hibernateSession.save(entity);
-        hibernateSession.getTransaction().commit();
-        hibernateSession.close();
-
-        System.out.println("Успешное сохронение " + entity.toString());
-        return entity;
-    }
 }
