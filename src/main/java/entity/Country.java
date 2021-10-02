@@ -6,16 +6,19 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name="conutries")
+@Table(name="country")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString
+
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    public String toString() {
+        return "Имя: " + name ;
+    }
 }

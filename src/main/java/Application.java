@@ -1,6 +1,10 @@
 import entity.*;
+import org.hibernate.NonUniqueObjectException;
 import org.hibernate.Session;
 import util.HibernateUtil;
+
+import java.util.Arrays;
+import java.util.List;
 
 
 public class Application {
@@ -21,7 +25,7 @@ public class Application {
         Country country1 = Country.builder().name("Кыргызстан").build();
         Country country2 = Country.builder().name("Россия").build();
         Country country3 = Country.builder().name("США").build();
-        Country country4 = Country.builder().name("Китай").build();
+        Country country4 = Country.builder().name("Италия").build();
 
         saveEntity(country1);
         saveEntity(country2);
@@ -81,6 +85,18 @@ public class Application {
         saveEntity(team4);
 
 
+
+
+        System.out.println("=========================================================");
+
+        getAllTeamNameAndWebsite().forEach(i -> System.out.println(Arrays.toString(i)));
+
+        System.out.println("=========================================================");
+
+        getAlLTeamItalyTournament().forEach(System.out::println);
+
+//        List<Tournament> tournamentList = getAllTournament("");
+//        System.out.println(tournamentList);
     }
 
     public static <T> T saveEntity(T entity){
@@ -92,5 +108,33 @@ public class Application {
 
         System.out.println("Успешное сохронение " + entity.toString());
         return entity;
+    }
+    public static Tournament getAllTournament (String name){
+       try( Session hibernateSession = HibernateUtil.getSessionFactory().openSession()) {
+           Tournament tournamentList = hibernateSession.createQuery(
+                           "FROM tournament c where upper(c.name) = upper(:name)", Tournament.class).
+                   setParameter("name", name).uniqueResult();
+
+           hibernateSession.close();
+           return tournamentList;
+       }catch (NonUniqueObjectException e){
+           System.err.println(e.getMessage());
+           return null;
+       }
+    }
+    public static List<Team> getAlLTeamItalyTournament(){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        List<Team> teamList = session.createQuery("from teams where country.name = 'Италия' order by sports",
+        Team.class).list();
+        session.close();
+        return teamList;
+    }
+    public static List<Object[]> getAllTeamNameAndWebsite(){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        List<Object[]> teams = session.createQuery("select t.name, t.logo from teams t order by t.id",
+                Object[].class).setMaxResults(3).list();// teams is not mapped [select t.name, t.logo from teams t order by t.id]
+        // я не понимая иза чего он не работает
+        session.close();
+        return teams;
     }
 }

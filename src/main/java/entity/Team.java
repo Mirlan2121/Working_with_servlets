@@ -11,7 +11,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString
+
 public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,4 +25,11 @@ public class Team {
     @ManyToOne
     @JoinColumn(name = "country_id")
     private Country country;
+
+    @ManyToOne
+    @JoinColumn(name = "tournament_id")
+    private Tournament tournament;
+    public String toString() {
+        return "Имя: " + name + ", Спорт: " + sport + ", Страна: " + country ;
+    }
 }

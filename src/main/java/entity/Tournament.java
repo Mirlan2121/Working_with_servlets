@@ -5,13 +5,12 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tourament")
+@Table(name = "tournament")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString
 public class Tournament {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,4 +22,8 @@ public class Tournament {
     @ManyToOne
     @JoinColumn(name = "sport_id")
     private Sport sport;
+    @Override
+    public String toString() {
+        return "Имя: " + name + ", Спорт: " + sport + ", Страна: " + country ;
+    }
 }
