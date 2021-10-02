@@ -18,7 +18,7 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "full_name", nullable = false)
-    private String name;
+    private String fullName;
     @Column(nullable = false)
     private Integer age;
     @ManyToOne
