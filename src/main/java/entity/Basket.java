@@ -17,6 +17,6 @@ public class Basket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @JoinColumn(name = "customer_id")
-    @ManyToOne
+    @OneToOne
     private Customer customer;
 }

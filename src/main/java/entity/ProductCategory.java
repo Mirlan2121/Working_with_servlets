@@ -18,10 +18,10 @@ public class ProductCategory {
     private Integer id;
 
     @JoinColumn(name = "category_id")
-    @ManyToOne
+    @OneToOne
     private Category category;
 
     @JoinColumn(name = "product_id")
-    @ManyToOne
+    @OneToOne
     private Product product;
 }

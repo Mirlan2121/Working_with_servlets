@@ -22,6 +22,6 @@ public class Customer {
     private String serName;
     private Integer phone;
     @JoinColumn(name = "address_id")
-    @ManyToOne
+    @OneToOne
     private Address address;
 }

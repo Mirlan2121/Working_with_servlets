@@ -19,6 +19,6 @@ public class BasketItem {
     private Integer productId;
     private Integer productCount;
     @JoinColumn(name = "basket_id")
-    @ManyToOne
+    @OneToOne
     private Basket basket;
 }

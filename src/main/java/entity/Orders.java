@@ -3,6 +3,7 @@ package entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "orders")
@@ -21,12 +22,12 @@ public class Orders {
     private String status;
 
     @JoinColumn(name  = "orders_method")
-    @ManyToOne
-    private OrdersMetod ordersMetod;
+    @OneToMany
+    private List<OrdersMetod> ordersMetod;
     @JoinColumn(name = "payment_method")
-    @ManyToOne
+    @OneToOne
     private PaymentMethod paymentMethod;
     @JoinColumn(name = "address_id")
-    @ManyToOne
+    @OneToOne
     private Address address;
 }
